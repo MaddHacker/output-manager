@@ -1,7 +1,7 @@
-# Output Manager [![Build Status](https://secure.travis-ci.org/MaddHacker/output-manager.svg?branch=master)](http://travis-ci.org/MaddHacker/output-manager)
+# Output Manager
 Output manager that allows for level-based output.  By default, this outputs to the console, but it by no means is required to.
 
-# The Fun Stuff
+## The Fun Stuff
 [![Build Status](https://secure.travis-ci.org/MaddHacker/output-manager.svg?branch=master)](http://travis-ci.org/MaddHacker/output-manager)
 
 [![Dependency Status](https://david-dm.org/MaddHacker/output-manager.svg)](https://david-dm.org/MaddHacker/output-manager)
