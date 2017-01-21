@@ -5,7 +5,7 @@ Output manager that allows for level-based output.  By default, this outputs to 
 Several npms utilize multiple dependencies, and lead to code bloat.  There are also several modules on the market that are very opinionated (e.g. force you to do certain things) or are focused on a single form of logging/output.  This tool aims to be a lightweight, flexible solution that allows for output to one or many sources as the user needs.
 
 ## Getting Started
-- Install the npm in your project: `npm install --save output-manager`
+- Install [the npm](https://www.npmjs.com/package/output-manager) in your project: `npm install --save output-manager`
 - Require the library where needed: `const O = require('output-manager');`
 - Output using one of several levels.  Each has a short and a long name.
 
