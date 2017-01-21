@@ -1,6 +1,13 @@
 # Output Manager [![Build Status](https://secure.travis-ci.org/MaddHacker/output-manager.svg?branch=master)](http://travis-ci.org/MaddHacker/output-manager)
 Output manager that allows for level-based output.  By default, this outputs to the console, but it by no means is required to.
 
+# The Fun Stuff
+[![Build Status](https://secure.travis-ci.org/MaddHacker/output-manager.svg?branch=master)](http://travis-ci.org/MaddHacker/output-manager)
+
+[![Dependency Status](https://david-dm.org/MaddHacker/output-manager.svg)](https://david-dm.org/MaddHacker/output-manager)
+
+[![npm Version](https://badge.fury.io/js/output-manager.svg)](https://badge.fury.io/js/output-manager)
+
 ## Why another Output/Logging tool?
 Several npms utilize multiple dependencies, and lead to code bloat.  There are also several modules on the market that are very opinionated (e.g. force you to do certain things) or are focused on a single form of logging/output.  This tool aims to be a lightweight, flexible solution that allows for output to one or many sources as the user needs.
 
