@@ -18,7 +18,11 @@
     "logging",
     "log",
     "output",
-    "out"
+    "out",
+    "output management",
+    "streaming logs",
+    "streaming logging",
+    "streaming output"
   ],
   "author": "MaddHacker <hacker@maddhacker.com> (http://www.maddhacker.com)",
   "license": "Apache-2.0",
