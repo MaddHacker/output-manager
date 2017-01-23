@@ -16,8 +16,6 @@
 
 'use strict';
 
-const assert = require('assert');
-
 const O = require('../../lib/out');
 
 // hijack the output for tests
@@ -33,8 +31,8 @@ function testPositiveOutput(logLevel, oFxn, tmpStr) {
             __lastLog = null;
             O.level(O.LogLevel[lvl]);
             oFxn('hello #' + tmpStr);
-            assert(null != __lastLog);
-            assert(__lastLog.endsWith('hello #' + tmpStr));
+            expect(__lastLog).not.toBe(null);
+            expect(__lastLog.endsWith('hello #' + tmpStr)).toBe(true);
         }
     }
 }
@@ -48,7 +46,7 @@ function testNegativeOutput(logLevel, oFxn) {
             __lastLog = null;
             O.level(O.LogLevel[lvl]);
             oFxn('hello #fail');
-            assert.equal(null, __lastLog);
+            expect(__lastLog).toBe(null);
         }
     }
 }
@@ -57,12 +55,12 @@ describe('Out (Unit)', function () {
 
     describe('#level() && #atLevel()', function () {
         it('should be set to INFO by default', function () {
-            assert.equal(O.LogLevel.INFO, O.atLevel());
+            expect(O.atLevel()).toBe(O.LogLevel.INFO);
         });
         it('should reflect changes immediately', function () {
             for (var lvl in O.LogLevel) {
                 O.level(O.LogLevel[lvl]);
-                assert.equal(O.LogLevel[lvl], O.atLevel());
+                expect(O.atLevel()).toBe(O.LogLevel[lvl]);
             }
         });
     });

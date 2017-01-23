@@ -16,14 +16,12 @@
 
 'use strict';
 
-const assert = require('assert');
-
 const O = require('../../lib/out');
 
 describe('Out (Integration)', function () {
     describe('TBD', function () {
         it('no integration tests needed yet', function () {
-            assert(true);
+            expect(true).toBe(true);
         });
     });
 });

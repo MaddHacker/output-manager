@@ -16,8 +16,6 @@
 
 'use strict';
 
-const assert = require('assert');
-
 require('../../lib/stringz');
 
 describe('Strings (Unit)', function () {
@@ -26,16 +24,16 @@ describe('Strings (Unit)', function () {
      */
     describe('#startsWith(str)', function () {
         it('should return true when the string starts with the given value', function () {
-            assert('Bob'.startsWith('B'));
+            expect('Bob'.startsWith('B')).toBe(true);
         });
         it('should be case sensitive', function () {
-            assert.equal(false, 'Bob'.startsWith('b'));
+            expect('Bob'.startsWith('b')).toBe(false);
         });
         it('should respect many characters', function () {
-            assert('Franklin'.startsWith('Frank'));
+            expect('Franklin'.startsWith('Frank')).toBe(true);
         });
         it('should be able to handle spaces', function () {
-            assert('The quick brown fox'.startsWith('The quick'));
+            expect('The quick brown fox'.startsWith('The quick')).toBe(true);
         });
     });
 
@@ -44,16 +42,16 @@ describe('Strings (Unit)', function () {
      */
     describe('#endsWith(str)', function () {
         it('should return true when the string ends with the given value', function () {
-            assert('Bob'.endsWith('b'));
+            expect('Bob'.endsWith('b')).toBe(true);
         });
         it('should be case sensitive', function () {
-            assert.equal(false, 'Bob'.endsWith('B'));
+            expect('Bob'.endsWith('B')).toBe(false);
         });
         it('should respect many characters', function () {
-            assert('Franklin'.endsWith('lin'));
+            expect('Franklin'.endsWith('lin')).toBe(true);
         });
         it('should be able to handle spaces', function () {
-            assert('The quick brown fox'.endsWith('brown fox'));
+            expect('The quick brown fox'.endsWith('brown fox')).toBe(true);
         });
     });
 
@@ -62,19 +60,19 @@ describe('Strings (Unit)', function () {
      */
     describe('#containsIgnoreCase(str)', function () {
         it('should return true when the string contains the given value', function () {
-            assert('Bob'.containsIgnoreCase('b'));
+            expect('Bob'.containsIgnoreCase('b')).toBe(true);
         });
         it('should be case insensitive', function () {
-            assert('BOB'.containsIgnoreCase('b'));
+            expect('BOB'.containsIgnoreCase('b')).toBe(true);
         });
         it('should have no false positives', function () {
-            assert.equal(false, 'The quick brown'.containsIgnoreCase('x'));
+            expect('The quick brown'.containsIgnoreCase('x')).toBe(false);
         });
         it('should respect many characters', function () {
-            assert('Franklin'.containsIgnoreCase('ankl'));
+            expect('Franklin'.containsIgnoreCase('ankl')).toBe(true);
         });
         it('should be able to handle spaces', function () {
-            assert('The quick brown fox'.containsIgnoreCase('ck bro'));
+            expect('The quick brown fox'.containsIgnoreCase('ck bro')).toBe(true);
         });
     });
 
@@ -83,25 +81,25 @@ describe('Strings (Unit)', function () {
      */
     describe('#replaceAll(oldStr,newStr)', function () {
         it('should return the same string when the replace value does not match anything', function () {
-            assert.equal('The quick brown fox', 'The quick brown fox'.replaceAll('bob', 'frank'));
+            expect('The quick brown fox'.replaceAll('bob', 'frank')).toBe('The quick brown fox');
         });
         it('should replace one character', function () {
-            assert.equal('Bib', 'Bob'.replaceAll('o', 'i'));
+            expect('Bob'.replaceAll('o', 'i')).toBe('Bib');
         });
         it('should replace all instances of a character', function () {
-            assert.equal('Boddy', 'Bobby'.replaceAll('b', 'd'));
+            expect('Bobby'.replaceAll('b', 'd')).toBe('Boddy');
         });
         it('should be case sensitive', function () {
-            assert.equal('Box', 'Box'.replaceAll('b', 'd'));
+            expect('Box'.replaceAll('b', 'd')).toBe('Box');
         });
         it('should respect spaces', function () {
-            assert.equal('Thequickbrownfox', 'The quick brown fox'.replaceAll(' ', ''));
+            expect('Thequickbrownfox', 'The quick brown fox'.replaceAll(' ', '')).toBe('Thequickbrownfox');
         });
         it('should be able to change the first character', function () {
-            assert.equal('kitten', 'mitten'.replaceAll('m', 'k'));
+            expect('mitten'.replaceAll('m', 'k')).toBe('kitten');
         });
         it('should respect words', function () {
-            assert.equal('meow meow black sheep', 'baa baa black sheep'.replaceAll('baa', 'meow'));
+            expect('baa baa black sheep'.replaceAll('baa', 'meow')).toBe('meow meow black sheep');
         });
     });
 });
