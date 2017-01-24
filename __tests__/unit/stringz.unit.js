@@ -102,4 +102,148 @@ describe('Strings (Unit)', function () {
             expect('baa baa black sheep'.replaceAll('baa', 'meow')).toBe('meow meow black sheep');
         });
     });
+
+    /**
+     * Check string#replaceAllIgnoreCase(oldStr,newStr);
+     */
+    describe('#replaceAll(oldStr,newStr)', function () {
+        it('should return the same string when the replace value does not match anything', function () {
+            expect('The quick brown fox'.replaceAllIgnoreCase('bob', 'frank')).toBe('The quick brown fox');
+        });
+        it('should replace one character', function () {
+            expect('Bob'.replaceAllIgnoreCase('o', 'i')).toBe('Bib');
+        });
+        it('should replace all instances of a character', function () {
+            expect('Bobby'.replaceAllIgnoreCase('b', 'd')).toBe('doddy');
+        });
+        it('should be case sensitive', function () {
+            expect('Box'.replaceAllIgnoreCase('b', 'd')).toBe('dox');
+        });
+        it('should respect spaces', function () {
+            expect('Thequickbrownfox', 'The quick brown fox'.replaceAllIgnoreCase(' ', '')).toBe('Thequickbrownfox');
+        });
+        it('should be able to change the first character', function () {
+            expect('mitten'.replaceAllIgnoreCase('m', 'k')).toBe('kitten');
+        });
+        it('should respect words', function () {
+            expect('Baa baa black sheep'.replaceAllIgnoreCase('baa', 'meow')).toBe('meow meow black sheep');
+        });
+    });
+
+    /**
+     * Check string#escapeRegEx()
+     */
+    describe('#escapeRegEx() using indicies', function () {
+        it('should escape -', function () {
+            expect('-'.escapeRegEx()).toBe('\\-');
+        });
+        it('should escape [', function () {
+            expect('['.escapeRegEx()).toBe('\\[');
+        });
+        it('should escape ]', function () {
+            expect(']'.escapeRegEx()).toBe('\\]');
+        });
+        it('should escape /', function () {
+            expect('/'.escapeRegEx()).toBe('\\/');
+        });
+        it('should escape {', function () {
+            expect('{'.escapeRegEx()).toBe('\\{');
+        });
+        it('should escape }', function () {
+            expect('}'.escapeRegEx()).toBe('\\}');
+        });
+        it('should escape (', function () {
+            expect('('.escapeRegEx()).toBe('\\(');
+        });
+        it('should escape )', function () {
+            expect(')'.escapeRegEx()).toBe('\\)');
+        });
+        it('should escape *', function () {
+            expect('*'.escapeRegEx()).toBe('\\*');
+        });
+        it('should escape +', function () {
+            expect('+'.escapeRegEx()).toBe('\\+');
+        });
+        it('should escape ?', function () {
+            expect('?'.escapeRegEx()).toBe('\\?');
+        });
+        it('should escape .', function () {
+            expect('.'.escapeRegEx()).toBe('\\.');
+        });
+        it('should escape \\ ', function () {
+            expect('\ '.escapeRegEx()).toBe(' ');
+        });
+        it('should escape ^', function () {
+            expect('^'.escapeRegEx()).toBe('\\^');
+        });
+        it('should escape $', function () {
+            expect('$'.escapeRegEx()).toBe('\\$');
+        });
+        it('should escape |', function () {
+            expect('|'.escapeRegEx()).toBe('\\|');
+        });
+    });
+
+    /**
+     * Check string#fmt(args...) with indicies;
+     */
+    describe('#fmt(args...) using indicies', function () {
+        it('should return the same string when there are no fmt args', function () {
+            expect('The quick brown fox'.fmt('bob', 'frank')).toBe('The quick brown fox');
+        });
+        it('should not replace open "{" at the beginning', function () {
+            expect('The %{s %{s} %{2}'.fmt('quick', 'brown', 'fox')).toBe('The %{s quick fox');
+        });
+        it('should not replace open "{" all over the place', function () {
+            expect('The %{s %{0} %{1 %{s} %{2} %{1'.fmt('quick', 'brown', 'fox')).toBe('The %{s quick %{1 quick fox %{1');
+        });
+        it('should support indicies in the "{}"', function () {
+            expect('The %{0} %{1} %{2}'.fmt('quick', 'brown', 'fox')).toBe('The quick brown fox');
+        });
+        it('should support indicies out of order in the "{}"', function () {
+            expect('The %{2} %{0} %{1}'.fmt('quick', 'brown', 'fox')).toBe('The fox quick brown');
+        });
+        it('should support indicies and the "s" mixed in the "{}"', function () {
+            expect('The %{0} %{s} %{2}'.fmt('quick', 'brown', 'fox')).toBe('The quick quick fox');
+        });
+        it('should support indicies out of order and the "s" mixed in the "{}"', function () {
+            expect('The %{2} %{s} %{0}'.fmt('quick', 'brown', 'fox')).toBe('The fox quick quick');
+        });
+        it('should support repeated indicies', function () {
+            expect('The %{0} %{0} %{0}'.fmt('quick', 'brown', 'fox')).toBe('The quick quick quick');
+        });
+    });
+
+    /**
+     * Check string#fmt(args...) with simple string replacement;
+     */
+    describe('#fmt(args...) using indicies', function () {
+        it('should return the same string when there are no fmt args', function () {
+            expect('The quick brown fox'.fmt('bob', 'frank')).toBe('The quick brown fox');
+        });
+        it('should replace strings in order', function () {
+            expect('The %{s} %{s} %{s}'.fmt('quick', 'brown', 'fox')).toBe('The quick brown fox');
+        });
+        it('should respect the "%%" as an escape strings in order', function () {
+            expect('The %%{s} %%{s} %%{s}'.fmt('quick', 'brown', 'fox')).toBe('The %%{s} %%{s} %%{s}');
+        });
+        it('should respect the "%%" as an escape string, mixed with replacements', function () {
+            expect('The %{s} %{s} %%{s}'.fmt('quick', 'brown', 'fox')).toBe('The quick brown %%{s}');
+        });
+        it('should not replace open "{" at the end', function () {
+            expect('The %{s} %{s} %{2'.fmt('quick', 'brown', 'fox')).toBe('The quick brown %{2');
+        });
+        it('should not replace open "{" at the beginning', function () {
+            expect('The %{s %{s} %{2}'.fmt('quick', 'brown', 'fox')).toBe('The %{s quick fox');
+        });
+        it('should not replace open "{" all over the place', function () {
+            expect('The %{s %{0} %{1 %{s} %{2} %{1'.fmt('quick', 'brown', 'fox')).toBe('The %{s quick %{1 quick fox %{1');
+        });
+        it('should support indicies and the "s" mixed in the "{}"', function () {
+            expect('The %{0} %{s} %{2}'.fmt('quick', 'brown', 'fox')).toBe('The quick quick fox');
+        });
+        it('should support indicies out of order and the "s" mixed in the "{}"', function () {
+            expect('The %{2} %{s} %{0}'.fmt('quick', 'brown', 'fox')).toBe('The fox quick quick');
+        });
+    });
 });
