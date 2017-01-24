@@ -21,18 +21,32 @@ const O = require('../../lib/out');
 // hijack the output for tests
 var __lastLog;
 O.setLogger(function (logMsg) { __lastLog = logMsg; });
+// hijack all output, regardless of level set output
+var __allLogs;
+O.setDoLog(function (msg, level) {
+    __allLogs = msg;
+    O.getLogOutFxn()(msg, level);
+});
+// format the messages
+O.setFmtString(function (msg, level) {
+    return msg;
+});
 
 /**
  * Abstraction of an expected positive output
  */
 function testPositiveOutput(logLevel, oFxn, tmpStr) {
     for (var lvl in O.LogLevel) {
-        if (O.LogLevel[lvl].value <= logLevel.value) {
-            __lastLog = null;
-            O.level(O.LogLevel[lvl]);
-            oFxn('hello #' + tmpStr);
+        var tmpLvl = O.LogLevel[lvl];
+        if (tmpLvl.value <= logLevel.value) {
+            __lastLog = null, __allLogs = null;
+            O.level(tmpLvl);
+            var tmpMsg = '%{0}%{1}'.fmt('hello #', tmpStr);
+            oFxn(tmpMsg);
             expect(__lastLog).not.toBe(null);
-            expect(__lastLog.endsWith('hello #' + tmpStr)).toBe(true);
+            expect(__allLogs).not.toBe(null);
+            expect(__lastLog).toBe(tmpMsg);
+            expect(__allLogs).toBe(tmpMsg);
         }
     }
 }
@@ -42,11 +56,15 @@ function testPositiveOutput(logLevel, oFxn, tmpStr) {
  */
 function testNegativeOutput(logLevel, oFxn) {
     for (var lvl in O.LogLevel) {
-        if (O.LogLevel[lvl].value > logLevel.value) {
-            __lastLog = null;
-            O.level(O.LogLevel[lvl]);
-            oFxn('hello #fail');
+        var tmpLvl = O.LogLevel[lvl];
+        if (tmpLvl.value > logLevel.value) {
+            __lastLog = null, __allLogs = null;
+            O.level(tmpLvl);
+            var tmpMsg = 'hello #fail';
+            oFxn(tmpMsg);
             expect(__lastLog).toBe(null);
+            expect(__allLogs).not.toBe(null);
+            expect(__allLogs).toBe(tmpMsg);
         }
     }
 }
