@@ -4,7 +4,7 @@
   "description": "Output library for JS to manage logging intelligently.",
   "main": "lib/out.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
