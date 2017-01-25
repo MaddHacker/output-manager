@@ -4,7 +4,14 @@ Output manager that allows for level-based output.  By default, this outputs to 
 ## The Fun Stuff
 [![Build Status](https://secure.travis-ci.org/MaddHacker/output-manager.svg?branch=master)](http://travis-ci.org/MaddHacker/output-manager)
 
+[![Code Climate](https://codeclimate.com/github/MaddHacker/output-manager/badges/gpa.svg)](https://codeclimate.com/github/MaddHacker/output-manager)
+
+[![Issue Count](https://codeclimate.com/github/MaddHacker/output-manager/badges/issue_count.svg)](https://codeclimate.com/github/MaddHacker/output-manager)
+
+[![Test Coverage](https://codeclimate.com/github/MaddHacker/output-manager/badges/coverage.svg)](https://codeclimate.com/github/MaddHacker/output-manager/coverage)
+
 [![Dependency Status](https://david-dm.org/MaddHacker/output-manager/status.svg)](https://david-dm.org/MaddHacker/output-manager)
+  [Dependency Status](https://david-dm.org/MaddHacker/output-manager)
 
 [![npm Version](https://badge.fury.io/js/output-manager.svg)](https://badge.fury.io/js/output-manager)
 
