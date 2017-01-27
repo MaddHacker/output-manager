@@ -11,7 +11,6 @@ Output manager that allows for level-based output.  By default, this outputs to 
 [![Test Coverage](https://codeclimate.com/github/MaddHacker/output-manager/badges/coverage.svg)](https://codeclimate.com/github/MaddHacker/output-manager/coverage)
 
 [![Dependency Status](https://david-dm.org/MaddHacker/output-manager/status.svg)](https://david-dm.org/MaddHacker/output-manager)
-  [Dependency Status](https://david-dm.org/MaddHacker/output-manager)
 
 [![npm Version](https://badge.fury.io/js/output-manager.svg)](https://badge.fury.io/js/output-manager)
 
