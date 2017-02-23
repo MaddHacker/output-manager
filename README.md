@@ -176,3 +176,6 @@ This is one of several projects that are in the works, so feel free to reach out
 
 # Issues
 Please use the [Issues tab](../../issues) to report any problems or feature requests.
+
+# Change Log
+All change history can be found in the [CHANGELOG.md](CHANGELOG.md) file.
