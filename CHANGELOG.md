@@ -1,3 +1,5 @@
+# CURRENT - v2.1.0
+
 # 2017-02-25 - v2.0.3
 - Add formal changelog
 - Rework structures to be more ES6-ish (no functional changes)
