@@ -124,3 +124,12 @@ Please use the [Issues tab](../../issues) to report any problems or feature requ
 
 # Change Log
 All change history can be found in the [CHANGELOG.md](CHANGELOG.md) file.
+
+# Example Repositories
+- [example-output-to-file](https://github.com/MaddHacker/example-output-to-file)
+
+Using `output-manager` to write to a file
+
+- [example-output-to-stream](https://github.com/MaddHacker/example-output-to-stream)
+
+Using `output-manager` to dump logs to a stream
