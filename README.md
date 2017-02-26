@@ -111,67 +111,10 @@ O.setDoLog(function (msg, level) {
 });
 ```
 
-# BONUS: String helpers
-Depending on the version of Node.js (or where your application is running), you might or might not have access to `String#startsWith(str)` and `String#endsWith(str)`.  This module adds that functionality, as well as methods for `String#containsIgnoreCase(str)` and `String#replaceAll(oldStr,newStr)`.  These are documented below:
-- `string#startsWith(str)` => returns `true` if `str` *exactly* matches the first part of `String`, `false` otherwise.
-- `string#endsWith(str)` => returns `true` if `str` *exactly* matches the last part of `String`, `false` otherwise.
-- `string#containsIgnoreCase(str)` => returns `true` if `str` matches any part of `String`, no matter the case, `false` otherwise.
-- `string#replaceAll(oldStr,newStr)` => replaces all instances of `oldStr` with `newStr` and returns a new `String`.  It is important to note that this will replace all instances, the existing `String#replace(oldStr,newStr)` only replaces the **first** instance.
-- `string#replaceAllIgnoreCase(oldStr,newStr)` => replaces all instances of `oldStr` with `newStr` and returns a new `String`.  It is important to note that this will replace all instances - without case sensitivity - the existing `String#replace(oldStr,newStr)` only replaces the **first** instance.
-- `string#escapeRegEx()` => escapes all special RegEx characters
-- `string#fmt(args...)` => extends the string object to support formatting.  This formatting can be done using simple `%{s}` replacements (in order of the `args...`) or the `args...` can be referenced using their 0-based indicies (e.g. `%{0}` or `%{2}`)  
-- `String.fmt(fmtString, args...)` => same functionality as `string#fmt(args...)`, just an extension of the `String` class, rather than object.
+# Dependencies and Why
+- [string-utilz](https://www.npmjs.com/package/string-utilz)
 
-Usage examples:
-```
-// startsWith
-'Bob'.startsWith('B'); // true
-'Bob'.startsWith('b'); // false
-'Franklin'.startsWith('Frank'); // true
-
-// endsWith
-'Bob'.endsWith('B'); // false
-'Bob'.endsWith('b'); // true
-'Franklin'.endsWith('lin'); // true
-
-// containsIgnoreCase
-'The quick brown fox'.containsIgnoreCase('quick'); // true
-'The quick brown fox'.containsIgnoreCase('QUICK'); // true
-'The quick brown fox'.containsIgnoreCase('ck BR'); // true
-'The quick brown fox'.containsIgnoreCase('lazy'); // false
-
-// replaceAll
-'Bobby'.replaceAll('b','d'); // 'Boddy'
-'Bobby'.replaceAll('B','d'); // 'dobby'
-'Bobby'.replaceAll('n','d'); // 'Bobby'
-'Meow meow meow, said the cat'.replaceAll('meow','woof') // 'Meow woof woof, said the cat'
-
-// replaceAllIgnoreCase
-'Bobby'.replaceAll('b','d'); // 'doddy'
-'Bobby'.replaceAll('B','d'); // 'doddy'
-'Bobby'.replaceAll('n','d'); // 'Bobby'
-'Meow meow meow, said the cat'.replaceAll('meow','woof') // 'woof woof woof, said the cat'
-
-// escapeRegEx
-'-'.escapeRegEx(); // '\-' 
-'{'.escapeRegEx(); // '\{'
-
-// fmt
-'The quick brown fox'.fmt('bob', 'frank') // 'The quick brown fox'
-'The %{2} %{0} %{1}'.fmt('quick', 'brown', 'fox'); // 'The fox quick brown'
-'The %{0} %{0} %{0}'.fmt('quick', 'brown', 'fox'); // 'The quick quick quick'
-'The %{s} %{s} %{s}'.fmt('quick', 'brown', 'fox'); // 'The quick brown fox'
-
-// String.fmt
-String.fmt('The quick brown fox', 'bob', 'frank'); // 'The quick brown fox'
-String.fmt('The %{2} %{0} %{1}', 'quick', 'brown', 'fox'); // 'The fox quick brown'
-String.fmt('The %{0} %{0} %{0}', 'quick', 'brown', 'fox'); // 'The quick quick quick'
-String.fmt('The %{s} %{s} %{s}', 'quick', 'brown', 'fox'); // 'The quick brown fox'
-
-```
-
-## Important Note about Stringz
-These are non-destructive functional additions.  EACH of these will check to ensure there is not already functionality that does the same thing, and only add the functionality if it doesn't exist.  This means this is safe to use in any of your environments.
+This is used to manage strings and string formatting.  This is a super-lightweight framework that helps to minimize disruptions in your code.  Primarily used for formatting.
 
 # Slack
 This is one of several projects that are in the works, so feel free to reach out on [Slack](https://maddhacker.slack.com/).  Please email `slack at maddhacker dot com` for an invite.

@@ -17,6 +17,7 @@
 'use strict';
 
 const O = require('../../lib/out');
+const stringz = require('string-utilz');
 
 // hijack the output for tests
 var __lastLog;
@@ -41,7 +42,7 @@ function testPositiveOutput(logLevel, oFxn, tmpStr) {
         if (tmpLvl.value <= logLevel.value) {
             __lastLog = null, __allLogs = null;
             O.level(tmpLvl);
-            var tmpMsg = '%{0}%{1}'.fmt('hello #', tmpStr);
+            var tmpMsg = stringz.fmt('%{0}%{1}', 'hello #', tmpStr);
             oFxn(tmpMsg);
             expect(__lastLog).not.toBe(null);
             expect(__allLogs).not.toBe(null);

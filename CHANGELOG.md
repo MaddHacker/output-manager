@@ -1,4 +1,5 @@
-# CURRENT - v2.1.0
+# 2017-02-26 - v2.1.0
+- Externalize stringz into [string-utilz](https://github.com/MaddHacker/string-utilz)
 
 # 2017-02-25 - v2.0.3
 - Add formal changelog

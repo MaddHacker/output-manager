@@ -27,7 +27,9 @@
   "author": "MaddHacker <hacker@maddhacker.com> (http://www.maddhacker.com)",
   "license": "Apache-2.0",
   "homepage": "https://github.com/MaddHacker/output-manager#readme",
-  "dependencies": {},
+  "dependencies": {
+    "string-utilz": "^1.0.0"
+  },
   "devDependencies": {
     "jest": "^18.1.0"
   },
