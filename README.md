@@ -85,14 +85,16 @@ O.setFmtString(function (msg, level) {
 ```
 
 # Controlling Output
-Currently, the application defaults to using `console.log` for all output.  However, this may not be efficient, and is almost impossible to test.  The output is controlled through an internal `__logger` function, which can be set using the `#setLogger(function(logMsg){})`.  This logger is called after 2 things have happened:
+Currently, the application defaults to using `process.stdout.write(msg + os.EOL)` for all output.  However, this may not be efficient, and is almost impossible to test.  The output is controlled through an internal `__logger` function, which can be set using the `#setLogger(function(logMsg){})`.  This logger is called after 2 things have happened:
 - The message has been determined to be at a level that needs to be output
 - The message has been formatted as described in Message Formatting
 To override the default `__logger` you can do something like:
 ```
 const O = require('output-manager');
 O.setLogger(function(logMsg) {
-    // do something fun 
+    console.log(logMsg);
+    // add file
+    // add stream
 });
 ```
 This control means that the output can be sent to the console, as well as to a websocket, or a file.
