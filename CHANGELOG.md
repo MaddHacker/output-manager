@@ -1,3 +1,6 @@
+# CURRENT - v2.1.1
+- Update [Jest](https://www.npmjs.com/package/jest) version.
+
 # 2017-02-26 - v2.1.0
 - Externalize stringz into [string-utilz](https://github.com/MaddHacker/string-utilz)
 
