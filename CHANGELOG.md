@@ -1,4 +1,4 @@
-# Current - v2.0.3
+# 2017-02-25 - v2.0.3
 - Add formal changelog
 - Rework structures to be more ES6-ish (no functional changes)
 - Change default output to `process.stdout.write(msg + os.EOL);` from `console.log(msg)`
