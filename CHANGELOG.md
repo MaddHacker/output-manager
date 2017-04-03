@@ -3,7 +3,7 @@
 - Update [string-utilz](https://github.com/MaddHacker/string-utilz) version.
 - Add [date-utilz](https://github.com/MaddHacker/date-utilz) dependency.
 - Refactor all of [out.js](https://github.com/MaddHacker/output-manager/blob/master/lib/out.js) into ES6 functions.
-  - Breaking changes to functionality/APIs
+  - _**Breaking changes**_ to functionality/APIs (thus the major version jump)
   - Better naming convention to make things easier
   - Easier to override/modify
   - Old functionality moved to [out.old.js](https://github.com/MaddHacker/output-manager/blob/master/lib/out.old.js)

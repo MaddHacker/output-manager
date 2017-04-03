@@ -1,6 +1,6 @@
 {
   "name": "output-manager",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Output library for JS to manage logging intelligently.",
   "main": "lib/out.js",
   "scripts": {
@@ -20,6 +20,12 @@
     "output",
     "out",
     "output management",
+    "file log",
+    "file logging",
+    "file output",
+    "file-based logs",
+    "file-based logging",
+    "file-based output",
     "streaming logs",
     "streaming logging",
     "streaming output"
