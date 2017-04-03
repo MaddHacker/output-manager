@@ -4,7 +4,7 @@
   "description": "Output library for JS to manage logging intelligently.",
   "main": "lib/out.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --colors"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,11 @@
     "streaming logging",
     "streaming output"
   ],
-  "author": "MaddHacker <hacker@maddhacker.com> (http://www.maddhacker.com)",
+  "author": "MaddHacker <hacker@maddhacker.com> (https://www.maddhacker.com)",
   "license": "Apache-2.0",
   "homepage": "https://github.com/MaddHacker/output-manager#readme",
   "dependencies": {
+    "date-utilz": "0.0.1",
     "string-utilz": "^1.3.0"
   },
   "devDependencies": {
