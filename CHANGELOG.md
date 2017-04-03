@@ -1,5 +1,12 @@
-# CURRENT - v2.1.1
+# 2017-04-03 - v3.0.0
 - Update [Jest](https://www.npmjs.com/package/jest) version.
+- Update [string-utilz](https://github.com/MaddHacker/string-utilz) version.
+- Add [date-utilz](https://github.com/MaddHacker/date-utilz) dependency.
+- Refactor all of [out.js](https://github.com/MaddHacker/output-manager/blob/master/lib/out.js) into ES6 functions.
+  - Breaking changes to functionality/APIs
+  - Better naming convention to make things easier
+  - Easier to override/modify
+  - Old functionality moved to [out.old.js](https://github.com/MaddHacker/output-manager/blob/master/lib/out.old.js)
 
 # 2017-02-26 - v2.1.0
 - Externalize stringz into [string-utilz](https://github.com/MaddHacker/string-utilz)
