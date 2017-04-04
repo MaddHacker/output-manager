@@ -70,13 +70,13 @@ function testNegativeOutput(logLevel, oFxn) {
     }
 }
 
-describe('Out (Unit)', function () {
+describe('Out (Unit)', () => {
 
-    describe('#level() && #atLevel()', function () {
-        it('should be set to INFO by default', function () {
+    describe('#level() && #atLevel()', () => {
+        it('should be set to INFO by default', () => {
             expect(O.atLevel()).toBe(O.LogLevel.INFO);
         });
-        it('should reflect changes immediately', function () {
+        it('should reflect changes immediately', () => {
             for (var lvl in O.LogLevel) {
                 O.level(O.LogLevel[lvl]);
                 expect(O.atLevel()).toBe(O.LogLevel[lvl]);
@@ -89,20 +89,20 @@ describe('Out (Unit)', function () {
      * #t()
      * #trace()
      */
-    describe('#t()', function () {
-        it('should output trace when level set to trace', function () {
+    describe('#t()', () => {
+        it('should output trace when level set to trace', () => {
             testPositiveOutput(O.LogLevel.TRACE, O.t, 't');
         });
-        it('should not output trace when level set to debug or higher', function () {
+        it('should not output trace when level set to debug or higher', () => {
             testNegativeOutput(O.LogLevel.TRACE, O.t);
         });
     });
 
-    describe('#trace()', function () {
-        it('should output trace when level set to trace', function () {
+    describe('#trace()', () => {
+        it('should output trace when level set to trace', () => {
             testPositiveOutput(O.LogLevel.TRACE, O.trace, 'trace');
         });
-        it('should not output trace when level set to debug or higher', function () {
+        it('should not output trace when level set to debug or higher', () => {
             testNegativeOutput(O.LogLevel.TRACE, O.trace);
         });
     });
@@ -112,20 +112,20 @@ describe('Out (Unit)', function () {
      * #d()
      * #debug()
      */
-    describe('#d()', function () {
-        it('should output debug when level set to debug or lower', function () {
+    describe('#d()', () => {
+        it('should output debug when level set to debug or lower', () => {
             testPositiveOutput(O.LogLevel.DEBUG, O.d, 'd');
         });
-        it('should not output debug when level set to info or higher', function () {
+        it('should not output debug when level set to info or higher', () => {
             testNegativeOutput(O.LogLevel.DEBUG, O.d);
         });
     });
 
-    describe('#debug()', function () {
-        it('should output debug when level set to debug or lower', function () {
+    describe('#debug()', () => {
+        it('should output debug when level set to debug or lower', () => {
             testPositiveOutput(O.LogLevel.DEBUG, O.debug, 'debug');
         });
-        it('should not output debug when level set to info or higher', function () {
+        it('should not output debug when level set to info or higher', () => {
             testNegativeOutput(O.LogLevel.DEBUG, O.debug);
         });
     });
@@ -135,20 +135,20 @@ describe('Out (Unit)', function () {
      * #i()
      * #info()
      */
-    describe('#i()', function () {
-        it('should output info when level set to info or lower', function () {
+    describe('#i()', () => {
+        it('should output info when level set to info or lower', () => {
             testPositiveOutput(O.LogLevel.INFO, O.i, 'i');
         });
-        it('should not output info when level set to warn or higher', function () {
+        it('should not output info when level set to warn or higher', () => {
             testNegativeOutput(O.LogLevel.INFO, O.i);
         });
     });
 
-    describe('#info()', function () {
-        it('should output info when level set to info or lower', function () {
+    describe('#info()', () => {
+        it('should output info when level set to info or lower', () => {
             testPositiveOutput(O.LogLevel.INFO, O.info, 'info');
         });
-        it('should not output info when level set to warn or higher', function () {
+        it('should not output info when level set to warn or higher', () => {
             testNegativeOutput(O.LogLevel.INFO, O.info);
         });
     });
@@ -158,20 +158,20 @@ describe('Out (Unit)', function () {
      * #w()
      * #warn()
      */
-    describe('#w()', function () {
-        it('should output warn when level set to warn or lower', function () {
+    describe('#w()', () => {
+        it('should output warn when level set to warn or lower', () => {
             testPositiveOutput(O.LogLevel.WARN, O.w, 'w');
         });
-        it('should not output warn when level set to error or higher', function () {
+        it('should not output warn when level set to error or higher', () => {
             testNegativeOutput(O.LogLevel.WARN, O.w);
         });
     });
 
-    describe('#warn()', function () {
-        it('should output warn when level set to warn or lower', function () {
+    describe('#warn()', () => {
+        it('should output warn when level set to warn or lower', () => {
             testPositiveOutput(O.LogLevel.WARN, O.warn, 'warn');
         });
-        it('should not output warn when level set to error or higher', function () {
+        it('should not output warn when level set to error or higher', () => {
             testNegativeOutput(O.LogLevel.WARN, O.warn);
         });
     });
@@ -181,20 +181,20 @@ describe('Out (Unit)', function () {
      * #e()
      * #error()
      */
-    describe('#e()', function () {
-        it('should output error when level set to error or lower', function () {
+    describe('#e()', () => {
+        it('should output error when level set to error or lower', () => {
             testPositiveOutput(O.LogLevel.ERROR, O.e, 'e');
         });
-        it('should not output error when level set to fatal or higher', function () {
+        it('should not output error when level set to fatal or higher', () => {
             testNegativeOutput(O.LogLevel.ERROR, O.e);
         });
     });
 
-    describe('#error()', function () {
-        it('should output error when level set to error or lower', function () {
+    describe('#error()', () => {
+        it('should output error when level set to error or lower', () => {
             testPositiveOutput(O.LogLevel.ERROR, O.error, 'error');
         });
-        it('should not output error when level set to fatal or higher', function () {
+        it('should not output error when level set to fatal or higher', () => {
             testNegativeOutput(O.LogLevel.ERROR, O.error);
         });
     });
@@ -204,20 +204,20 @@ describe('Out (Unit)', function () {
      * #f()
      * #fatal()
      */
-    describe('#f()', function () {
-        it('should output fatal when level set to fatal or lower', function () {
+    describe('#f()', () => {
+        it('should output fatal when level set to fatal or lower', () => {
             testPositiveOutput(O.LogLevel.FATAL, O.f, 'f');
         });
-        it('should always output fatal', function () {
+        it('should always output fatal', () => {
             testNegativeOutput(O.LogLevel.FATAL, O.f);
         });
     });
 
-    describe('#fatal()', function () {
-        it('should output fatal when level set to fatal or lower', function () {
+    describe('#fatal()', () => {
+        it('should output fatal when level set to fatal or lower', () => {
             testPositiveOutput(O.LogLevel.FATAL, O.fatal, 'fatal');
         });
-        it('should always output fatal', function () {
+        it('should always output fatal', () => {
             testNegativeOutput(O.LogLevel.FATAL, O.fatal);
         });
     });

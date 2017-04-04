@@ -18,9 +18,9 @@
 
 const O = require('../../lib/out');
 
-describe('Out (Integration)', function () {
-    describe('TBD', function () {
-        it('no integration tests needed yet', function () {
+describe('Out (Integration)', () => {
+    describe('TBD', () => {
+        it('no integration tests needed yet', () => {
             expect(true).toBe(true);
         });
     });
