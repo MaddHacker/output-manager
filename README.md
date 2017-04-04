@@ -46,7 +46,7 @@ Access to log levels is through a relevantly named function, of which there is a
 The LogLevel is dynamically set/adjusted as the application is running.  This allows any developer to write a hook to turn up logs in a running environment without restart or issue.  By default, the LogLevel is set to `INFO` but can easily be changed using the `O.level = newLevel` method.  An example of this is:
 ```
 const om = require('output-manager');
-const o = new om.Out();
+const O = new om.Out();
 O.d('Hi, I am debug'); // no output
 O.level = om.LogLevel.DEBUG;
 O.d('Hi, I am debug'); // outputs: Hi, I am debug
