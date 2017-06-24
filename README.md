@@ -24,7 +24,7 @@ Several npms utilize multiple dependencies, and lead to code bloat.  There are a
 - Output using one of several levels.  Each has a short and a long name.
 
 # The LogLevels
-As with most logging systems, there have been several levels defined to allow for grainular output.  In order from most verbose to least verbose, those are:
+As with most logging systems, there have been several levels defined to allow for granular output.  In order from most verbose to least verbose, those are:
 - `TRACE` => only used for those really hard problems and lots of information
 - `DEBUG` => used to provide more development focused output
 - `INFO` => used to provide information to the consumer of the output
