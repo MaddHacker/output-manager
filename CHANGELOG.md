@@ -1,3 +1,6 @@
+# 2020-03-10 - v3.1.0
+- Update dependency versions and `.travis.yml`.
+
 # 2017-04-03 - v3.0.0
 - Update [Jest](https://www.npmjs.com/package/jest) version.
 - Update [string-utilz](https://github.com/MaddHacker/string-utilz) version.
